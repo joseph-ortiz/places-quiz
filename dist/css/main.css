@@ -1,0 +1,87 @@
+/************************
+** Variables
+************************/
+/************************
+** Generic Classes
+************************/
+body {
+  font: 100% Helvetica, arial, sans-serif;
+  background: white;
+  height: 100vh;
+  opacity: 0.6;
+  height: 100%;
+  margin: 0px auto;
+  padding: 0px auto; }
+
+main {
+  height: 100%;
+  margin: 0px auto;
+  padding: 0px auto; }
+
+ul {
+  list-style-type: none; }
+
+.logo {
+  height: 2em;
+  display: inline-block; }
+
+.tagline {
+  height: 1em;
+  display: inline-block; }
+
+/************************
+** Navigation
+************************/
+ul.nav {
+  position: absolute;
+  top: 0;
+  left: 0; }
+  ul.nav li {
+    float: left; }
+
+header {
+  text-align: center;
+  position: relative;
+  height: 65px;
+  padding: 150px 0 80px;
+  background-color: #72bfbb;
+  text-align: center; }
+
+/************************
+** Question Card
+************************/
+form {
+  border-radius: 3px;
+  width: 100%;
+  background: #fff;
+  border-top: 6px solid #62c2f3; }
+
+.hide {
+  display: none; }
+
+.question {
+  text-align: center; }
+
+.answer-container {
+  margin: 0 auto;
+  padding: 0 30%;
+  padding-top: 1em; }
+
+.controls {
+  display: flex;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+  .controls a {
+    color: black;
+    position: relative;
+    border-style: none;
+    display: inline-block;
+    vertical-align: top;
+    padding: 8px 14px 10px;
+    font-weight: 300;
+    text-decoration: none;
+    min-height: 100%;
+    width: 100%;
+    float: left; }
