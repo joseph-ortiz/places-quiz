@@ -12,7 +12,7 @@ $font-stack:Helvetica, arial, sans-serif;
  $green:rgb(114, 191, 152);
  $brown:rgb(191, 149, 114);
  $blue:rgb(114, 191, 187);
- $debug:0;
+ $debug:1;
 
 /************************
 ** Generic Classes
@@ -20,9 +20,9 @@ $font-stack:Helvetica, arial, sans-serif;
 
 * {
     @if $debug==1 {
-        border: 1px solid black;
+        border: 1px solid red;
     }
-}   
+}
 body {
     font: 100% $font-stack;
     background: white;
@@ -32,8 +32,7 @@ body {
     margin: 0px auto;
     padding: 0px auto;
 }
-
-main{
+main {
     height: 100%;
     margin: 0px auto;
     padding: 0px auto;
@@ -41,12 +40,9 @@ main{
 ul {
     list-style-type: none;
 }
-
-
-.logo{
-    height: 3em;
+.logo {
+    height: 2em;
 }
-
 .tagline {
     height: 1em;
     display: inline-block;
@@ -66,8 +62,8 @@ ul.nav {
 header {
     text-align: center;
     position: relative;
-    height: 65px;
-    padding: 150px 0 80px;
+    height: 2em;
+    padding: 2em 0 80px;
     background-color: $blue;
     text-align: center;
 }
@@ -84,13 +80,23 @@ form {
 .hide {
     display: none;
 }
-.question{
+.answer .question {
     text-align: center;
 }
-.answer-container{
+.answer-container {
     margin: 0 auto;
-padding: 0 30%;
-padding-top: 1em;
+    padding: 0 30%;
+    padding-top: 1em;
+}
+.question {
+    text-align: center;
+    font-size: 2em;
+}
+ul.choices {
+    li {
+        font-size: 1em;
+        float: left;
+    }
 }
 .controls {
     display: flex;

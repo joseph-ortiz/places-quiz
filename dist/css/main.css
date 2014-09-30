@@ -4,6 +4,9 @@
 /************************
 ** Generic Classes
 ************************/
+* {
+  border: 1px solid red; }
+
 body {
   font: 100% Helvetica, arial, sans-serif;
   background: white;
@@ -22,7 +25,7 @@ ul {
   list-style-type: none; }
 
 .logo {
-  height: 3em; }
+  height: 2em; }
 
 .tagline {
   height: 1em;
@@ -41,8 +44,8 @@ ul.nav {
 header {
   text-align: center;
   position: relative;
-  height: 65px;
-  padding: 150px 0 80px;
+  height: 2em;
+  padding: 2em 0 80px;
   background-color: #72bfbb;
   text-align: center; }
 
@@ -58,13 +61,21 @@ form {
 .hide {
   display: none; }
 
-.question {
+.answer .question {
   text-align: center; }
 
 .answer-container {
   margin: 0 auto;
   padding: 0 30%;
   padding-top: 1em; }
+
+.question {
+  text-align: center;
+  font-size: 2em; }
+
+ul.choices li {
+  font-size: 1em;
+  float: left; }
 
 .controls {
   display: flex;

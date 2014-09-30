@@ -10,59 +10,36 @@
 
 <body>
     <header>
-        <nav>
-            <ul class="nav">
-                <li>Home</li>
-                <li>Github</li>
-            </ul>
-        </nav>
         <img class="logo" src="images/logo.svg" alt="Places">
         <br>
         <br>
         <img class="tagline" src="images/tagline.svg" alt="How well do you know this world?">
     </header>
     <main>
-        <form class="card">
-            <p class="question">What country produces the most sandwiches?</p>
-
-            <div class="answer-container">
-                <p class="answer">
-                    <input type="radio" name="name" required />
-                    <label>
-                        <span></span>
-                        China
-                    </label>
-                </p>
-                <p class="answer">
-                    <input type="radio" name="name" required />
-                    <label>
-                        <span></span>
-                        Chile
-                    </label>
-                </p>
-                <p class="answer">
-                    <input type="radio" name="name" required />
-                    <label>
-                        <span></span>
-                        United States
-                    </label>
-                </p>
-                <p class="answer">
-                    <input type="radio" name="name" required />
-                    <label>
-                        <span></span>
-                        Sweden
-                    </label>
-                </p>
-            </div>
-        </form>
+    <div id="question-area"></div>
+     
         <p class="controls">
             <a class="button">Previous</a>
             <a class="counter">1/10</a> 
             <a class="button">Next</a> 
         </p>
     </main>
-    <script type="text/javascript" src="js/all.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+   <script id="entry-template" type="text/x-handlebars-template">
+            <div class="entry">
+              <h2 class="question">{{text}}</h2>
+
+              <ul class="choices">
+               {{#each choices}}
+                    <li>{{this}}</li>
+                {{/each}}
+              </ul>
+              <input type="hidden" value="{{answer}}" class="answer">
+            </div>
+    </script>
+    <script type="text/javascript" src="dist/js/all.min.js"></script>
+
 </body>
 
 </html>

@@ -31,7 +31,7 @@ gulp.task('sass', function() {
 
 gulp.task('cssMinify', function () {
   return gulp.src('css/*.css')
-    .pipe(cssmin())
+    //.pipe(cssmin())
     .pipe(gulp.dest('dist/css/'));
 });
 
@@ -40,8 +40,8 @@ gulp.task('scripts', function() {
     return gulp.src('js/*.js')
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist'))
-        .pipe(rename('all.min.js'))
-        .pipe(uglify())
+        //.pipe(rename('all.min.js'))
+        //.pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });
 
