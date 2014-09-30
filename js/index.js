@@ -16,9 +16,8 @@ var createQuestion = function (question) {
 };
 
 
-$(document).ready(function () {
-
-  var questions = [{
+var init = function(){
+	var questions = [{
     text: "Which country has won the most Olympic Medals overall?",
     choices: ["United States", "Russia", "Germany", "Great Britain"],
     answer: "United States"
@@ -40,15 +39,16 @@ $(document).ready(function () {
     answer: "United States"
   }];
 
+
   for (var i = 0; i < questions.length; i++) {
     var html = createQuestion(questions[i]);
-    $("main").append(html);
+    $("main").prepend(html);
   }
+  var currentQuestionIndex = 0;
+  var currentQuestion = $(".entry")[currentQuestionIndex];
+  $(currentQuestion).show();
+}
 
-  $(".entry").each(function(item){
-  	$(item).hide();
-  });
-
-
-
+$(document).ready(function () {
+init(); 
 });
