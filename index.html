@@ -16,28 +16,31 @@
         <img class="tagline" src="images/tagline.svg" alt="How well do you know this world?">
     </header>
     <main>
-    <div id="question-area"></div>
-     
+        <div id="question-area"></div>
+        <input id="currentQuestion"type="hidden" class="current-question" value=0>
+        <input id="currentAnswer"type="hidden" class="current-answer" value="">
         <footer class="controls">
             <a class="button">Previous</a>
             <a class="counter">1/10</a> 
             <a class="button">Next</a> 
         </footer>
     </main>
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  
-   <script id="entry-template" type="text/x-handlebars-template">
-            <div class="entry hide">
-              <h2 class="question">{{text}}</h2>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div class="entry hide">
+            <h2 class="question">{{text}}</h2>
 
-              <ul class="choices">
-               {{#each choices}}
-                    <li class="item"><a >{{this}}</a></li>
+            <ul class="choices">
+                {{#each choices}}
+                <li class="item"><a>{{this}}</a>
+                </li>
                 {{/each}}
-              </ul>
-              <input type="hidden" value="{{answer}}" class="answer">
-            </div>
+            </ul>
+            <input type="hidden" value="{{answer}}" class="answer">
+            <button class="hide">confirm</button>
+        </div>
     </script>
+    <script type="text/javascript" src="dist/js/handlebars-v2.0.0.js"></script>
     <script type="text/javascript" src="dist/js/all.js"></script>
 
 </body>

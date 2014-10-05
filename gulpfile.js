@@ -16,8 +16,8 @@ var cssmin = require('gulp-cssmin');
 // Lint Task
 gulp.task('lint', function() {
     return gulp.src('js/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+      //  .pipe(jshint())
+        //.pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass
@@ -33,7 +33,7 @@ gulp.task('cssMinify', function () {
   return gulp.src('css/*.css')
     //.pipe(cssmin())
     .pipe(gulp.dest('dist/css/'));
-});
+}); 
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
