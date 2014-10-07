@@ -3131,20 +3131,21 @@ var init = function() {
     $(currentQuestion).addClass("current");
     $(currentQuestion).show();
     hideResultImages(); //hide result images on start up.
-
+    setupQuestions();
+     $("button.reset").hide();
 }
 
-var hideResultImages = function(){
-  $(".result").find("img").hide();
+var hideResultImages = function() {
+    $(".result").find("img").hide();
 }
 var isCorrect = function() {
-  hideResultImages();
+    hideResultImages();
     $(".result").find("img.correct").show();
     $(".result").find("img.correct").addClass('animated bounceIn'); //addClass('animated bounceOutLeft');
 
 }
 var isWrong = function() {
-   hideResultImages();
+    hideResultImages();
     $(".result").find("img.wrong").show();
 }
 
@@ -3158,18 +3159,17 @@ var nextQuestion = function() {
         var next = current + 1;
         if (next >= questions.length) {
             hideResultImages();
+            $("button.reset").show();
         } else {
             $(questions[next]).show();
             $("#currentQuestion").val(next);
-            // alert("The next number is: " + next);
         }
     });
 }
 
 
-$(document).ready(function() {
-    init();
-    $(".entry").each(function() {
+var setupQuestionHandler = function(){
+  $(".entry").each(function() {
         var question = $(this);
         var confirmButton = $(question).find("button");
         $(confirmButton).one('click', function() {
@@ -3200,6 +3200,27 @@ $(document).ready(function() {
             });
         });
     });
+}
+var setupQuestions = function() {
+    
+  setupQuestionHandler();
+  reset();
+}
+
+var reset = function() {
+    $("button.reset").click(function() {
+        $("#currentQuestion").val(0);
+        $($(".entry")[0]).show();
+         $("button.reset").hide();  
+            setupQuestionHandler();    
+    });
+
+
+}
+
+$(document).ready(function() {
+    init();
+
 });
 
 /*!
