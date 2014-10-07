@@ -6,6 +6,7 @@
     <title>Quiz</title>
     <link rel="stylesheet" type="text/css" href="dist/css/reset.css">
     <link rel="stylesheet" type="text/css" href="dist/css/main.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/animate.css">
 </head>
 
 <body>
@@ -14,18 +15,23 @@
         <br>
         <br>
         <img class="tagline" src="images/tagline.svg" alt="How well do you know this world?">
+       
     </header>
+     <div class="result">
+            <img src="images/correct.svg" class="correct" alt="correct">
+            <img src="images/wrong.svg" class="wrong" alt="wrong">
+        </div>
     <main>
         <div id="question-area"></div>
-        <input id="currentQuestion"type="hidden" class="current-question" value=0>
-        <input id="currentAnswer"type="hidden" class="current-answer" value="">
-        <footer class="controls">
-            <a class="button">Previous</a>
-            <a class="counter">1/10</a> 
-            <a class="button">Next</a> 
-        </footer>
+        <input id="currentQuestion" type="hidden" class="current-question" value=0>
+        <input id="currentAnswer" type="hidden" class="current-answer" value="">
     </main>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <footer class="controls">
+        <a class="button hide">Previous</a>
+        <a class="counter hide">1/10</a>
+        <a class="button next-question hide">Next</a> 
+    </footer>
+    <script src="dist/js/jquery-2.1.1.js"></script>
     <script id="entry-template" type="text/x-handlebars-template">
         <div class="entry hide">
             <h2 class="question">{{text}}</h2>
@@ -37,7 +43,7 @@
                 {{/each}}
             </ul>
             <input type="hidden" value="{{answer}}" class="answer">
-            <button class="hide">confirm</button>
+            <button class="confirm-button">confirm</button>
         </div>
     </script>
     <script type="text/javascript" src="dist/js/handlebars-v2.0.0.js"></script>

@@ -44,45 +44,64 @@ var init = function() {
 
     for (var i = 0; i < questions.length; i++) {
         var html = createQuestion(questions[i]);
-        $("main").prepend(html);
+        $("#question-area").prepend(html);
     }
     var currentQuestionIndex = parseInt($("#currentQuestion").val());
     var currentQuestion = $(".entry")[currentQuestionIndex];
     $(currentQuestion).addClass("current");
     $(currentQuestion).show();
-
-
-
-    //TODO:select choice  
-
-    //TODO:Ok button handler
-    //TODO:next question handler
-    //TODO:previous question handler
-    //TODO:Update Current Question Handler
+    hideResultImages(); //hide result images on start up.
 
 }
 
+var hideResultImages = function(){
+  $(".result").find("img").hide();
+}
+var isCorrect = function() {
+  hideResultImages();
+    $(".result").find("img.correct").show();
+    $(".result").find("img.correct").addClass('animated bounceIn'); //addClass('animated bounceOutLeft');
 
+}
+var isWrong = function() {
+   hideResultImages();
+    $(".result").find("img.wrong").show();
+}
+
+var nextQuestion = function() {
+    $(".next-question").click(function() {
+        $(".next-question").hide();
+        $(".entry").hide();
+        $("img.correct").hide();
+        var questions = $(".entry");
+        var current = parseInt($("#currentQuestion").val()) //TODO:getCurrentQuestion
+        var next = current + 1;
+        if (next >= questions.length) {
+            hideResultImages();
+        } else {
+            $(questions[next]).show();
+            $("#currentQuestion").val(next);
+            // alert("The next number is: " + next);
+        }
+    });
+}
 
 
 $(document).ready(function() {
     init();
-
-
-
-
     $(".entry").each(function() {
         var question = $(this);
         var confirmButton = $(question).find("button");
         $(confirmButton).one('click', function() {
             var button = $(this);
-            var selectedAnswer =  $("#currentAnswer").val();
+            var selectedAnswer = $("#currentAnswer").val();
             var answer = $(button).parent().find('.answer').val();
             if (selectedAnswer === answer) {
-                alert("correct")
+                isCorrect();
             } else {
-                alert("Sorry, the answer was: " + answer);
+                isWrong();
             }
+            $(".next-question").show();
             nextQuestion();
         });
 
@@ -91,6 +110,8 @@ $(document).ready(function() {
             var li = $(this);
             $(li).click(function() {
                 var choice = $(this);
+                $(choice).siblings().removeClass("clicked");
+                $(choice).addClass("clicked");
                 var currentQuestion = $(choice).parent().parent();
                 var confirmButton = $(currentQuestion).find("button");
                 $("#currentAnswer").val($(choice).text().trim());
@@ -98,21 +119,5 @@ $(document).ready(function() {
                 $(confirmButton).show(); //TODO:show button          
             });
         });
-
     });
-
-
-    var nextQuestion = function() {
-        $(".entry").hide();
-        var questions = $(".entry");
-        var current = parseInt($("#currentQuestion").val()) //TODO:getCurrentQuestion
-        var next = current + 1;
-        if (next >= questions.length) {
-            alert("you completed the quiz")
-        } else {
-            $(questions[next]).show();
-            $("#currentQuestion").val(next);
-            alert("The next number is: " + next);
-        }
-    }
 });
